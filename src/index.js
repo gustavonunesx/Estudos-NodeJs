@@ -1,7 +1,7 @@
 const player1 = {
     NOME: "Mario",
     VELOCIDADE: 4,
-    MANOBRIDADE: 3,
+    MANOBRABILIDADE: 3,
     PODER: 3,
     PONTOS: 0,
 }
@@ -9,7 +9,7 @@ const player1 = {
 const player2 = {
     NOME: "Luigi",
     VELOCIDADE: 3,
-    MANOBRIDADE: 4,
+    MANOBRABILIDADE: 4,
     PODER: 4,
     PONTOS: 0,
 }
@@ -39,6 +39,11 @@ async function getRandomBlock() {
     return result;
     
 }
+
+async function logRollResult(cara) {
+    
+}
+
 async function playRaceEngine(character1, character2) {
 
     for (let round = 1; round <= 5; round++){
@@ -49,6 +54,28 @@ async function playRaceEngine(character1, character2) {
         console.log(`Bloco ${block}`)
     }
 
+    //rolar os dados    
+    dice1 = await rollDice();
+    dice2 = await rollDice();
+
+    //teste de habilidade
+    let totalTestSkill1 = 0
+    let totalTestSkill2 = 0
+
+    if (block === "RETA"){
+        totalTestSkill1 = dice1 + character1.VELOCIDADE;
+        totalTestSkill2 = dice2 + character2.VELOCIDADE
+
+       
+    }
+    if (block === "CURVA"){
+        totalTestSkill1 = dice1 + character1.MANOBRABILIDADE;
+        totalTestSkill2 = dice2 + character2.MANOBRABILIDADE;
+    }
+    if (block === "CONFRONTO"){
+        let powerResult1 = dice1 + character1.PODER;
+        let powerResult2 = dice2 + character2.PODER;
+    }
 
 }
 

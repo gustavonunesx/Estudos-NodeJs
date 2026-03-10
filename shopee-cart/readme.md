@@ -7,5 +7,5 @@ o cálculo de sub-itens automaticamente
 //dominio da aplicacao: carrinho de compras
 
 //entidades representadas
-//carrinho
-//itens
+//carrinho -> cart.js
+//itens -> item.js

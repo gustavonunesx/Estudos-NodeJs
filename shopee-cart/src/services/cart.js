@@ -33,13 +33,26 @@ async function displayCart(userCart) {
     });
 }
 
-async function  removeItem(userCart, index){
+async function  removeItem(userCart, item){
+    //ecnontrar o indice do item
+    const indexFound = userCart.findIndex((p) => p.name === item.name);
+    
+    //caso nao encontre
+    if (indexFound == -1){
+        console.log("item nao encontrado");
+        return;
+    }
 
-    //transforma o index visual do usuario para o indice do backend
-    const deleteIndex = index - 1;
-    //é maior que zero e se eh menor que o tamanho do carrinho
-    if(index >= 0 && index < userCart.length){
-        userCart.splice(deleteIndex, 1);
+    //item > 1 subtrair um item
+    if(userCart[indexFound].quantity > 1){
+        userCart[indexFound].quantity -= 1;
+        return;
+    }
+
+
+    //item = 1 deletar item
+    if(userCart[indexFound].quantity == 1){
+        userCart.splice(indexFound, 1); // encontra e deleta 1 item 
     }
 }
 

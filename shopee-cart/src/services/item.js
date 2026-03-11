@@ -1,10 +1,10 @@
 //criar item com subtotal certo
-async function createItem(name, price, quanity) {
+async function createItem(name, price, quantity) {
     return{
         name, 
         price,
-        quanity,
-        subtotal: () => price * quanity
+        quantity,
+        subtotal: () => price * quantity
     };
 }
 

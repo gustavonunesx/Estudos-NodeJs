@@ -33,8 +33,14 @@ async function displayCart(userCart) {
     });
 }
 
-async function removeItem(userCart, index){
+async function  removeItem(userCart, index){
 
+    //transforma o index visual do usuario para o indice do backend
+    const deleteIndex = index - 1;
+    //é maior que zero e se eh menor que o tamanho do carrinho
+    if(index >= 0 && index < userCart.length){
+        userCart.splice(deleteIndex, 1);
+    }
 }
 
 export {
